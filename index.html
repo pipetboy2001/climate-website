@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es-mx">
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
@@ -15,25 +15,8 @@
 	<script src="./assets/js/weather.js" defer></script>
 </head>
 
-<body onload="onLoad()">
-	<!--Wallpaper-->
-	<!-- <div class="container pb-5 pt-5">
-		<div class="svg-container">
-			<div class="waveWrapper waveAnimation">
-				<div class="waveWrapperInner bgTop">
-					<div class="wave waveTop"
-						style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png')"></div>
-				</div>
-				<div class="waveWrapperInner bgMiddle">
-					<div class="wave waveMiddle"
-						style="background-image: url('http://front-end-noobs.com/jecko/img/wave-mid.png')"></div>
-				</div>
-				<div class="waveWrapperInner bgBottom">
-					<div class="wave waveBottom"
-						style="background-image: url('http://front-end-noobs.com/jecko/img/wave-bot.png')"></div>
-				</div>
-			</div>
-		</div> -->
+<body onload="onLoad()"
+	style="background-image: url('http://front-end-noobs.com/jecko/img/wave-top.png'); background-repeat: no-repeat; background-size: cover;">
 
 	<!--buscador -->
 	<div class="search-form col-md-9 col-xl-8 ml-auto mr-auto">
@@ -68,8 +51,12 @@
 							<p class="temp">
 							<div class="temperature">
 								<img src="images/temp-mid.png" class="temp-img" id="temp-img" />
-								<h1><div class="temp-value" id="temp">0 c</div></h1>
-								<h4><div class="range" id="range">00c / 00c</div></h4>
+								<h1>
+									<div class="temp-value" id="temp">0 c</div>
+								</h1>
+								<h4>
+									<div class="range" id="range">00c / 00c</div>
+								</h4>
 							</div>
 							</p>
 						</div>
@@ -90,7 +77,6 @@
 										<span class="temp">21<span class="deg">0</span><span
 												class="temp-type">C</span></span>
 									</span>
-									
 								</li>
 							</ul>
 						</div>
@@ -100,19 +86,34 @@
 
 			<!--Clima 2: por ubicacion-->
 			<div class="col">
-				<div class="weather-card rain">
+				<div class="weather-card one" class="weather-card" id="card">
 					<div class="top">
 						<div class="wrapper">
 							<div class="mynav">
 								<a href="javascript:;"><span class="lnr lnr-chevron-left"></span></a>
 								<a href="javascript:;"><span class="lnr lnr-cog"></span></a>
 							</div>
-							<h1 class="heading">Rainy day</h1>
-							<h3 class="location">Sylhet, Bangladesh</h3>
+							<h1 class="heading">
+								<div id="description">Rainy day</div>
+							</h1>
+							<h3 class="location" id="location">ciudad</h3>
+							<h2>
+								<div id="date"></div>
+							</h2>
 							<p class="temp">
-								<span class="temp-value">16</span>
-								<span class="deg">0</span>
-								<a href="javascript:;"><span class="temp-type">C</span></a>
+							<div class="information-container">
+								Temperature
+								<div class="information" id="temperature">23</div>
+							</div>
+							<a href="javascript:;"><span class="temp-type">C</span></a>
+							<div class="information-container">
+								Humidity
+								<div class="information" id="humidity"></div>
+							</div>
+							<div class="information-container">
+								Pressure
+								<div class="information" id="pressure"></div>
+							</div>
 							</p>
 						</div>
 					</div>
@@ -139,10 +140,11 @@
 					</div>
 				</div>
 			</div>
-
 		</div>
 	</div>
 	</div>
+
+
 	<!--Footer-->
 	<footer class="text-center bg-dark">
 		<div class="container text-white py-4 py-lg-5">
