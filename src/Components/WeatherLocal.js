@@ -95,6 +95,7 @@ const WeatherLocal = () => {
   return (
     <div className='weather-card'>
       <div className={`rectangle ${rectangleClass}`}>
+        <br></br>
         <div className="top">
           <h1>
             {/* colocar ciudad y pais */}

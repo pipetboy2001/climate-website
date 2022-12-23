@@ -3,35 +3,24 @@ import axios from 'axios';
 import './../Styles/Weather.css';
 const API_KEY = '39e3eed599c1d4cc4a74c3f379bad554';
 const WeatherLocal = () => {
+
+    const [searchTerm, setSearchTerm] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [forecastData, setForecastData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
+    
     useEffect(() => {
         const fetchData = async () => {
             setIsLoading(true);
             try {
-                // Solicita permiso al usuario para acceder a su ubicación
-                const location = await navigator.geolocation.getCurrentPosition(
-                    async position => {
-                        // Obtiene la ubicación del usuario
-                        const { latitude, longitude } = position.coords;
-                        // Realiza una solicitud HTTP a la API de Open Weather Map utilizando la ubicación del usuario y el parámetro lang=es
-                        const currentResult = await axios(
-                            `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&lang=es&appid=${API_KEY}`
-                        );
-                        setWeatherData(currentResult.data);
-                        // Realiza una solicitud HTTP a la API de Open Weather Map para obtener la previsión del tiempo en español
-                        const forecastResult = await axios(
-                            `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&lang=es&appid=${API_KEY}`
-                        );
-                        setForecastData(forecastResult.data);
-                    },
-                    error => {
-                        setError(error);
-                    }
-                );
+                // Obtener datos de la API
+                const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=${API_KEY}`);
+                setWeatherData(data);
+                // Obtener datos de la API
+                const { data: forecast } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Tokyo&appid=${API_KEY}`);
+                setForecastData(forecast);
             } catch (error) {
                 setError(error);
             }
@@ -39,15 +28,16 @@ const WeatherLocal = () => {
         };
         fetchData();
     }, []);
-    if (error) {
-        return <div>Error: {error.message}</div>;
-    }
     if (isLoading) {
-        return <div>Cargando...</div>;
+        return <div className='weather-card'>Cargando...</div>;
+    }
+    if (error) {
+        return <div className='weather-card'>Error: {error.message}</div>;
     }
     if (!weatherData || !forecastData) {
         return null;
     }
+
 
     const celsius = weatherData.main.temp - 273.15;
     const maxTemperatureCelsius = weatherData.main.temp_max - 273.15;
@@ -76,9 +66,6 @@ const WeatherLocal = () => {
         }, 0) / yesterdayData.length;
     }
 
-
-
-
     // Obtiene la fecha del día de mañana
     const tomorrowData = forecastData.list.filter(item => {
         const date = new Date(item.dt * 1000);
@@ -94,8 +81,19 @@ const WeatherLocal = () => {
 
     return (
         <div className='weather-card'>
+            
             <div className={`rectangle ${rectangleClass}`}>
                 <div className="top">
+                    
+                    <div className="weather-card__search">
+                        <input
+                            type="text"
+                            value={searchTerm}
+                            onChange={event => setSearchTerm(event.target.value)}
+                        />
+                        <button onClick={() => setSearchTerm('')}>Limpiar</button>
+                    </div>
+
                     <h1>
                         {/* colocar ciudad y pais */}
                         <div>{weatherData.name}, {weatherData.sys.country}</div>
@@ -142,4 +140,5 @@ const WeatherLocal = () => {
     );
 };
 export default WeatherLocal;
+
 
