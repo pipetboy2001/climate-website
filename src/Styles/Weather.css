@@ -1,39 +1,70 @@
-.outer-rectangle {
-    /* estilos para el rectángulo interior con relieve */
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-    width: 40%;
-    height: 40%;
-    border-radius: 10px;
-    padding: 10px;
-    box-sizing: border-box;
-
+/* Carta de tiempo*/
+.weather-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 5px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+}
+/*TOP*/
+.weather-card .top {
+    /* background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat; */
+    
+    text-align: center; /*Alinear el texto al centro */
+    background-size: cover;
+    background-position: center;
+    color: #fff; /*Color del texto*/
+    padding: 10% 10% 0;
+}
+/* Formato de letras del tiempo actual*/
+.weather-card .top .temp {
+    font-size: 400%;
+    font-weight: 300;
+    margin: 0;
 }
 
-.inner-rectangle {
-    /* estilos para el rectángulo interior */
-    box-sizing: border-box;
-    border-radius: 10px;
+/* Rectángulo que se cambia según la hora del día */
+.rectangle {
+    height: 100%;
 }
 
-.inner-rectangle.morning {
-    /* estilos para el rectángulo interior en la mañana */
-    background-color: #ffffcc;
+.morning {
+    background-color: #f7d794;
 }
 
-.inner-rectangle.afternoon {
-    /* estilos para el rectángulo interior en la tarde */
-    background-color: #ffd180;
+.afternoon {
+    background-color: #f5b183;
 }
 
-.inner-rectangle.night {
-    /* estilos para el rectángulo interior en la noche */
-    background-color: #b92fb9;
+.night {
+    background-color: #d1b2d1;
 }
 
-.PrevensionTiempo{
-    background-color: #736b73;
-    box-sizing: border-box;
-        border-radius: 10px;
-
-
+/*Bottom*/
+/* Carta del tiempo de abajo*/
+.weather-card .bottom {
+    padding: 0 15%;
+}
+/* Formato de letras tamaño de mañana*/
+.weather-card .bottom .wrapper .forecast li {
+    display: block;
+    font-size: 150%;
+    color: rgb(0, 0, 0);
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+/*que flote a la derecha el tiempo*/
+.weather-card .bottom .wrapper .forecast li .condition {
+    float: right;
+    font-size: 25%;
+}
+/* tamaño de las palabras "ayer" y "mañana"*/
+.weather-card .bottom .wrapper .forecast li .condition .temp {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 400%;
+    color: rgb(0, 0, 0);
 }

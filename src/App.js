@@ -1,16 +1,19 @@
 import React from 'react';
-// import { WeatherGlobal } from './Components/WeatherGlobal';
+import  WeatherGlobal  from './Components/WeatherGlobal';
 import WeatherLocal from './Components/WeatherLocal';
 import { Footer } from './Components/Footer';
 
 
 function App() {
   return (
-    <div>
-      <h1>Hola mundo</h1>
-      {/* Obtener de manera Global */}
+    <div className="App">
+
+    <div className='responsive-components'>
       {/* Obtener de manera local */}
       <WeatherLocal />
+      {/* Obtener de manera Global */}
+      <WeatherGlobal />
+      </div>
       {/* Footer */}
       < Footer />
     </div>
