@@ -1,0 +1,39 @@
+.outer-rectangle {
+    /* estilos para el rectángulo interior con relieve */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    width: 40%;
+    height: 40%;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+
+}
+
+.inner-rectangle {
+    /* estilos para el rectángulo interior */
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.inner-rectangle.morning {
+    /* estilos para el rectángulo interior en la mañana */
+    background-color: #ffffcc;
+}
+
+.inner-rectangle.afternoon {
+    /* estilos para el rectángulo interior en la tarde */
+    background-color: #ffd180;
+}
+
+.inner-rectangle.night {
+    /* estilos para el rectángulo interior en la noche */
+    background-color: #b92fb9;
+}
+
+.PrevensionTiempo{
+    background-color: #736b73;
+    box-sizing: border-box;
+        border-radius: 10px;
+
+
+}
