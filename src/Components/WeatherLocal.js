@@ -97,6 +97,8 @@ const WeatherLocal = () => {
       <div className={`rectangle ${rectangleClass}`}>
         <div className="top">
           <h1>
+            {/* colocar ciudad y pais */}
+            <div>{weatherData.name}, {weatherData.sys.country}</div>
             {/* Descripcion */}
             <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon'/> </div>
           </h1>

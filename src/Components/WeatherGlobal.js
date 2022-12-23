@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './../Styles/Weather.css';
 const API_KEY = '39e3eed599c1d4cc4a74c3f379bad554';
-const WeatherGlobal = () => {
+const WeatherLocal = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [forecastData, setForecastData] = useState(null);
     const [error, setError] = useState(null);
@@ -97,6 +97,8 @@ const WeatherGlobal = () => {
             <div className={`rectangle ${rectangleClass}`}>
                 <div className="top">
                     <h1>
+                        {/* colocar ciudad y pais */}
+                        <div>{weatherData.name}, {weatherData.sys.country}</div>
                         {/* Descripcion */}
                         <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon' /> </div>
                     </h1>
@@ -139,5 +141,5 @@ const WeatherGlobal = () => {
         </div>
     );
 };
-export default WeatherGlobal;
+export default WeatherLocal;
 
