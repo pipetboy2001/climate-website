@@ -15,6 +15,7 @@ const WeatherLocal = () => {
         // Solicita permiso al usuario para acceder a su ubicación
         const location = await navigator.geolocation.getCurrentPosition(
           async position => {
+            console.log(location);
             // Obtiene la ubicación del usuario
             const { latitude, longitude } = position.coords;
             // Realiza una solicitud HTTP a la API de Open Weather Map utilizando la ubicación del usuario y el parámetro lang=es
