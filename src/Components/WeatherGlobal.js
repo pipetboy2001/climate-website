@@ -44,7 +44,23 @@ const WeatherGlobal = () => {
         return <div className='weather-card'>Cargando...</div>;
     }
     if (error) {
-        return <div className='weather-card'>Error: {error.message}</div>;
+        return (
+            <div className='weather-card'>
+                <p>Error: {error.message}</p>
+                <div className='weather-card__search'>
+                    <form onSubmit={handleSubmit}>
+                        <input
+                            type='text'
+                            placeholder='Ingresa una ciudad valida'
+                            value={searchTerm}
+                            onChange={e => setSearchTerm(e.target.value)}
+                        />
+                        <button type='submit'>Buscar</button>   
+                    </form>
+                </div>
+            </div>
+
+        );
     }
     if (!weatherData || !forecastData) {
         return null;
