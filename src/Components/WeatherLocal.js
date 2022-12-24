@@ -40,7 +40,11 @@ const WeatherLocal = () => {
     fetchData();
   }, []);
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <div>Error: {error.message}
+      <br></br>
+      Debe permitir buscar su ubicacion para ver localmente
+    </div>;
+
   }
   if (isLoading) {
     return <div>Cargando...</div>;
@@ -101,7 +105,7 @@ const WeatherLocal = () => {
             {/* colocar ciudad y pais */}
             <div>{weatherData.name}, {weatherData.sys.country}</div>
             {/* Descripcion */}
-            <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon'/> </div>
+            <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon' /> </div>
           </h1>
           <h3>
             <div className='temp'>{Math.round(celsius)}°C</div>
@@ -125,7 +129,7 @@ const WeatherLocal = () => {
               <span >Ayer</span>
               <span className="lnr lnr-sun condition">
                 {/* Obtener temperatura de ayer */}
-                <span className="temp">{isNaN(yesterdayTemperature) ? 'no disponible' : `${yesterdayTemperature}° C`}</span>  
+                <span className="temp">{isNaN(yesterdayTemperature) ? 'no disponible' : `${yesterdayTemperature}° C`}</span>
               </span>
             </li>
             <li>
