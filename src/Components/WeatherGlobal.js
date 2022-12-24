@@ -1,33 +1,45 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './../Styles/Weather.css';
-const API_KEY = '39e3eed599c1d4cc4a74c3f379bad554';
-const WeatherLocal = () => {
 
+const API_KEY = '39e3eed599c1d4cc4a74c3f379bad554';
+
+const getCurrentHour = timezoneOffset => {
+    return new Date(timezoneOffset * 1000).getHours();
+};
+
+const WeatherGlobal = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [weatherData, setWeatherData] = useState(null);
     const [forecastData, setForecastData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    
+    const fetchData = async searchTerm => {
+        setIsLoading(true);
+        try {
+            // Obtener datos de la API
+            const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${searchTerm}&appid=${API_KEY}`);
+            data.timezoneOffset = data.timezone;
+            setWeatherData(data);
+            // Obtener datos de la API
+            const { data: forecast } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${searchTerm}&appid=${API_KEY}`);
+            setForecastData(forecast);
+        } catch (error) {
+            setError(error);
+        }
+        setIsLoading(false);
+    };
+
     useEffect(() => {
-        const fetchData = async () => {
-            setIsLoading(true);
-            try {
-                // Obtener datos de la API
-                const { data } = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Tokyo&appid=${API_KEY}`);
-                setWeatherData(data);
-                // Obtener datos de la API
-                const { data: forecast } = await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=Tokyo&appid=${API_KEY}`);
-                setForecastData(forecast);
-            } catch (error) {
-                setError(error);
-            }
-            setIsLoading(false);
-        };
-        fetchData();
+        fetchData('Tokyo');
     }, []);
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        fetchData(searchTerm);
+    };
+
     if (isLoading) {
         return <div className='weather-card'>Cargando...</div>;
     }
@@ -38,7 +50,7 @@ const WeatherLocal = () => {
         return null;
     }
 
-
+    const currentHour = getCurrentHour(weatherData.timezoneOffset);
     const celsius = weatherData.main.temp - 273.15;
     const maxTemperatureCelsius = weatherData.main.temp_max - 273.15;
     const minTemperatureCelsius = weatherData.main.temp_min - 273.15;
@@ -52,6 +64,7 @@ const WeatherLocal = () => {
         // Obtiene la fecha del día anterior
         const yesterday = new Date();
         yesterday.setDate(yesterday.getDate() - 1);
+
 
         // Filtra los datos de previsión del tiempo para obtener solo los del día anterior
         const yesterdayData = forecastData.list.filter(item => {
@@ -73,25 +86,22 @@ const WeatherLocal = () => {
     });
     const tomorrowTemperature = tomorrowData.reduce((acc, item) => acc + item.main.temp, 0) / tomorrowData.length - 273.15;
     //Obtener la hora para definir si es mañana,tarde o noche
-    const currentHour = new Date().getHours();
     const rectangleClass =
         currentHour >= 6 && currentHour < 12 ? 'morning' :
             currentHour >= 12 && currentHour < 18 ? 'afternoon' :
                 'night';
 
+
     return (
         <div className='weather-card'>
-            
             <div className={`rectangle ${rectangleClass}`}>
                 <div className="top">
-                    
+                    {/* Buscador de ciudades */}
                     <div className="weather-card__search">
-                        <input
-                            type="text"
-                            value={searchTerm}
-                            onChange={event => setSearchTerm(event.target.value)}
-                        />
-                        <button onClick={() => setSearchTerm('')}>Limpiar</button>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" placeholder='Ingresa una ciudad' value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
+                            <button type="submit">Buscar</button>
+                        </form>
                     </div>
 
                     <h1>
@@ -139,6 +149,6 @@ const WeatherLocal = () => {
         </div>
     );
 };
-export default WeatherLocal;
+export default WeatherGlobal;
 
 

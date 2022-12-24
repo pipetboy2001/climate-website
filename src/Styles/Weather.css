@@ -37,7 +37,7 @@
 }
 
 .morning {
-    background-color: #f7d794;
+    background-color: #94f7c4;
 }
 
 .afternoon {
@@ -46,6 +46,37 @@
 
 .night {
     background-color: #d1b2d1;
+}
+
+/* Buscador*/
+.weather-card__search {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.weather-card__search form {
+    display: flex;
+    width: 100%;
+    max-width: 400px;
+}
+
+.weather-card__search input {
+    flex: 1;
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px 0 0 4px;
+}
+
+.weather-card__search button {
+    font-size: 16px;
+    padding: 10px;
+    border: none;
+    background-color: #2196f3;
+    color: white;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
 }
 
 /*Bottom*/
