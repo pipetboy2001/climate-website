@@ -1,70 +1,49 @@
-# Getting Started with Create React App
+<div align="center">
+      <h1>⛈climate-website🌤</h1>
+     </div>
+<p align="center"> <a href="https://climate-website.vercel.app/" target="_blank"><img alt="" src="https://img.shields.io/badge/Website-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" /></a> <a href="}" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a> </p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Description
+Este es una aplicación de tiempo que permite a los usuarios ver el clima de la ciudad de su elección.
 
-## Available Scripts
+# Features
+La aplicación de pronóstico del tiempo es una herramienta que permite a los usuarios ver el clima en su ubicación actual o en cualquier otra ciudad del mundo. Al ingresar a la aplicación, se mostrará el clima de la ciudad predeterminada, que puede ser la ubicación actual del usuario o una ciudad específica si se ha buscado previamente.
 
-In the project directory, you can run:
+Los usuarios también pueden buscar cualquier ciudad utilizando la barra de búsqueda, y la aplicación mostrará el clima de esa ciudad junto con la fecha y el lugar. Además, la aplicación muestra el pronóstico del tiempo para los próximos 5 días, incluyendo imágenes para cada tipo de clima, temperaturas mínimas y máximas, estado y dirección del viento, porcentaje de humedad, indicador de visibilidad y número de presión de aire.
 
-### `npm start`
+Por último, la aplicación también ofrece la opción de convertir la temperatura entre grados Celsius y grados Fahrenheit utilizando un botón de conversión. Los usuarios pueden utilizar esta función para ver la temperatura en la unidad de medida que prefieran.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+En resumen, la aplicación de pronóstico del tiempo es una herramienta útil para ver el clima en cualquier lugar del mundo y para planificar actividades al aire libre en función del tiempo.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Tech Used
+ ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+      
+## Cómo usar
+- Abre la aplicación y se te mostrará el clima de la ciudad predeterminada, preferiblemente tu ubicación actual.
+- Si quieres ver el clima de otra ciudad, puedes usar el campo de búsqueda para buscar una ciudad específica.
+- La aplicación mostrará el clima de hoy y los próximos 5 días.
+- Puedes ver la fecha y el lugar del clima en la parte superior de la pantalla.
+- Puedes ver una imagen para cada tipo de clima debajo de la fecha y el lugar.
+- Puedes ver el grado mínimo y máximo cada día debajo de la imagen del clima.
+- Puedes ver el estado y la dirección del viento debajo de los grados mínimo y máximo.
+- Puedes ver el porcentaje de humedad debajo del estado y la dirección del viento.
+- Puedes ver un indicador de visibilidad debajo del porcentaje de humedad.
+- Puedes ver el número de presión de aire debajo del indicador de visibilidad.
+- Si quieres convertir la temperatura en Celcius a Fahrenheit y viceversa, puedes hacer clic en el botón "C" o "F" que se encuentra al lado derecho del tiempo actual
 
-### `npm test`
+## Despliegue
+Para desplegar este proyecto en React, sigue los siguientes pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clona este repositorio en tu computadora.
+- Asegúrate de tener Node.js instalado en tu computadora.
+- Abre una terminal y navega hasta la carpeta del proyecto.
+- Ejecuta npm install para instalar todas las dependencias necesarias.
+- Ejecuta npm start para iniciar el servidor de desarrollo.
+- Abre un navegador y ve a http://localhost:3000 para ver el proyecto..
+      
+## Créditos
 
-### `npm run build`
+-   [Pipetboy](https://github.com/pipetboy2001)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+También queremos dar las gracias a todos los que han contribuido con ideas y sugerencias para mejorar este proyecto.
+    
