@@ -57,39 +57,95 @@ const WeatherLocal = () => {
   const celsius = weatherData.main.temp - 273.15;
   const maxTemperatureCelsius = weatherData.main.temp_max - 273.15;
   const minTemperatureCelsius = weatherData.main.temp_min - 273.15;
-  const today = new Date().getDay();
   const iconName = weatherData.weather[0].icon;
   const iconUrl = `https://openweathermap.org/img/wn/${iconName}@2x.png`;
 
-  // Obtiene la fecha del día anterior
-  let yesterdayTemperature;
-  if (forecastData) {
-    // Obtiene la fecha del día anterior
-    const yesterday = new Date();
-    yesterday.setDate(yesterday.getDate() - 1);
 
-    // Filtra los datos de previsión del tiempo para obtener solo los del día anterior
-    const yesterdayData = forecastData.list.filter(item => {
-      const date = new Date(item.dt * 1000);
-      return date.getDay() === yesterday.getDay();
-    });
+  // Obtiene la fecha del quinto día en el futuro
+  const fifthDay = new Date();
+  fifthDay.setDate(fifthDay.getDate() + 5);
 
-    // Calcula la temperatura promedio del día anterior
-    yesterdayTemperature = yesterdayData.reduce((acc, item) => {
+  // Filtra los datos de previsión del tiempo para obtener solo los del quinto día en el futuro
+  const fifthDayData = forecastData.list.filter(item => {
+    const date = new Date(item.dt * 1000);
+    return date.getDay() === fifthDay.getDay();
+  });
+
+  // Calcula la temperatura promedio del quinto día en el futuro
+  const fifthDayTemperature =
+    fifthDayData.reduce((acc, item) => {
       const temp = item.main.temp - 273.15;
       return isNaN(temp) ? acc : acc + temp;
-    }, 0) / yesterdayData.length;
-  }
+    }, 0) / fifthDayData.length;
 
+  // Obtiene la fecha del cuarto día en el futuro
+  const fourthDay = new Date();
+  fourthDay.setDate(fourthDay.getDate() + 4);
 
-
-
-  // Obtiene la fecha del día de mañana
-  const tomorrowData = forecastData.list.filter(item => {
+  // Filtra los datos de previsión del tiempo para obtener solo los del cuarto día en el futuro
+  const fourthDayData = forecastData.list.filter(item => {
     const date = new Date(item.dt * 1000);
-    return date.getDay() === today + 1;
+    return date.getDay() === fourthDay.getDay();
   });
-  const tomorrowTemperature = tomorrowData.reduce((acc, item) => acc + item.main.temp, 0) / tomorrowData.length - 273.15;
+
+  // Calcula la temperatura promedio del cuarto día en el futuro
+  const fourthDayTemperature =
+    fourthDayData.reduce((acc, item) => {
+      const temp = item.main.temp - 273.15;
+      return isNaN(temp) ? acc : acc + temp;
+    }, 0) / fourthDayData.length;
+
+  // Obtiene la fecha del tercer día en el futuro
+  const thirdDay = new Date();
+  thirdDay.setDate(thirdDay.getDate() + 3);
+
+  // Filtra los datos de previsión del tiempo para obtener solo los del tercer día en el futuro
+  const thirdDayData = forecastData.list.filter(item => {
+    const date = new Date(item.dt * 1000);
+    return date.getDay() === thirdDay.getDay();
+  });
+
+  // Calcula la temperatura promedio del tercer día en el futuro
+  const thirdDayTemperature =
+    thirdDayData.reduce((acc, item) => {
+      const temp = item.main.temp - 273.15;
+      return isNaN(temp) ? acc : acc + temp;
+    }, 0) / thirdDayData.length;
+
+  // Obtiene la fecha del segundo día en el futuro
+  const secondDay = new Date();
+  secondDay.setDate(secondDay.getDate() + 2);
+
+  // Filtra los datos de previsión del tiempo para obtener solo los del segundo día en el futuro
+  const secondDayData = forecastData.list.filter(item => {
+    const date = new Date(item.dt * 1000);
+    return date.getDay() === secondDay.getDay();
+  });
+
+  // Calcula la temperatura promedio del segundo día en el futuro
+  const secondDayTemperature =
+    secondDayData.reduce((acc, item) => {
+      const temp = item.main.temp - 273.15;
+      return isNaN(temp) ? acc : acc + temp;
+    }, 0) / secondDayData.length;
+
+  // Obtiene la fecha del primer día en el futuro
+  const firstDay = new Date();
+  firstDay.setDate(firstDay.getDate() + 1);
+
+  // Filtra los datos de previsión del tiempo para obtener solo los del primer día en el futuro
+  const firstDayData = forecastData.list.filter(item => {
+    const date = new Date(item.dt * 1000);
+    return date.getDay() === firstDay.getDay();
+  });
+
+  // Calcula la temperatura promedio del primer día en el futuro
+  const firstDayTemperature =
+    firstDayData.reduce((acc, item) => {
+      const temp = item.main.temp - 273.15;
+      return isNaN(temp) ? acc : acc + temp;
+    }, 0) / firstDayData.length;
+
   //Obtener la hora para definir si es mañana,tarde o noche
   const currentHour = new Date().getHours();
   const rectangleClass =
@@ -126,18 +182,38 @@ const WeatherLocal = () => {
       <div className="bottom">
         <div className="wrapper">
           <ul className="forecast">
-            <li className="active">
-              <span >Ayer</span>
-              <span className="lnr lnr-sun condition">
-                {/* Obtener temperatura de ayer */}
-                <span className="temp">{isNaN(yesterdayTemperature) ? 'no disponible' : `${yesterdayTemperature}° C`}</span>
+            <li>
+              <span>{firstDay.toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })}</span>
+              <span className="lnr lnr-cloud condition">
+                <span className="temp">{firstDayTemperature.toFixed(1)}<span
+                  className="temp-type">° C</span></span>
               </span>
             </li>
             <li>
-              <span>Mañana</span>
+              <span>{secondDay.toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })}</span>
               <span className="lnr lnr-cloud condition">
-                {/* Obtener temperatura de mañana */}
-                <span className="temp">{tomorrowTemperature.toFixed(1)}<span
+                <span className="temp">{secondDayTemperature.toFixed(1)}<span
+                  className="temp-type">° C</span></span>
+              </span>
+            </li>
+            <li>
+              <span>{thirdDay.toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })}</span>
+              <span className="lnr lnr-cloud condition">
+                <span className="temp">{thirdDayTemperature.toFixed(1)}<span
+                  className="temp-type">° C</span></span>
+              </span>
+            </li>
+            <li>
+              <span>{fourthDay.toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })}</span>
+              <span className="lnr lnr-cloud condition">
+                <span className="temp">{fourthDayTemperature.toFixed(1)}<span
+                  className="temp-type">° C</span></span>
+              </span>
+            </li>
+            <li>
+              <span>{fifthDay.toLocaleDateString('es-ES', { day: 'numeric', month: 'numeric' })}</span>
+              <span className="lnr lnr-cloud condition">
+                <span className="temp">{fifthDayTemperature.toFixed(1)}<span
                   className="temp-type">° C</span></span>
               </span>
             </li>
