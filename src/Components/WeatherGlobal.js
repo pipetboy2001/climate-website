@@ -66,6 +66,10 @@ const WeatherGlobal = () => {
         return null;
     }
 
+    const currentDate = new Date();
+    currentDate.setTime(currentDate.getTime() + weatherData.timezone * 1000);
+    const localDate = currentDate.toLocaleDateString();
+
     const currentHour = getCurrentHour(weatherData.timezoneOffset);
     const celsius = weatherData.main.temp - 273.15;
     const maxTemperatureCelsius = weatherData.main.temp_max - 273.15;
@@ -180,6 +184,7 @@ const WeatherGlobal = () => {
                     <h1>
                         {/* colocar ciudad y pais */}
                         <div>{weatherData.name}, {weatherData.sys.country}</div>
+                        <p>Fecha: {localDate}</p>
                         {/* Descripcion */}
                         <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon' /> </div>
                     </h1>
