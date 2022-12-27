@@ -175,6 +175,7 @@ const WeatherLocal = () => {
               <div>Humedad: {weatherData.main.humidity}%</div>
               <div>Viento: {weatherData.wind.speed} m/s</div>
               <div>Presion: {weatherData.main.pressure} hPa</div>
+              <div>Visibilidad: {weatherData.visibility / 1000} km</div>
               <br></br>
             </div>
           </h3>
