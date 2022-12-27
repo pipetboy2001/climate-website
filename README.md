@@ -1,12 +1,12 @@
 <div align="center">
       <h1>⛈climate-website🌤</h1>
      </div>
-<p align="center"> <a href="https://climate-website.vercel.app/" target="_blank"><img alt="" src="https://img.shields.io/badge/Website-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" /></a> <a href="}" target="_blank"><img alt="" src="https://img.shields.io/badge/LinkedIn-0077B5?style=normal&logo=linkedin&logoColor=white" style="vertical-align:center" /></a> </p>
+<p align="center"> <a href="https://climate-website.vercel.app/" target="_blank"><img alt="Climate-website" src="https://img.shields.io/badge/Website-EA4C89?style=normal&logo=dribbble&logoColor=white" style="vertical-align:center" /></a>  </p>
 
 # Description
 Este es una aplicación de tiempo que permite a los usuarios ver el clima de la ciudad de su elección.
 
-# Features
+# Características
 La aplicación de pronóstico del tiempo es una herramienta que permite a los usuarios ver el clima en su ubicación actual o en cualquier otra ciudad del mundo. Al ingresar a la aplicación, se mostrará el clima de la ciudad predeterminada, que puede ser la ubicación actual del usuario o una ciudad específica si se ha buscado previamente.
 
 Los usuarios también pueden buscar cualquier ciudad utilizando la barra de búsqueda, y la aplicación mostrará el clima de esa ciudad junto con la fecha y el lugar. Además, la aplicación muestra el pronóstico del tiempo para los próximos 5 días, incluyendo imágenes para cada tipo de clima, temperaturas mínimas y máximas, estado y dirección del viento, porcentaje de humedad, indicador de visibilidad y número de presión de aire.
@@ -15,10 +15,10 @@ Por último, la aplicación también ofrece la opción de convertir la temperatu
 
 En resumen, la aplicación de pronóstico del tiempo es una herramienta útil para ver el clima en cualquier lugar del mundo y para planificar actividades al aire libre en función del tiempo.
 
-# Tech Used
+# Tecnologías
  ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
       
-## Cómo usar
+# Cómo usar
 - Abre la aplicación y se te mostrará el clima de la ciudad predeterminada, preferiblemente tu ubicación actual.
 - Si quieres ver el clima de otra ciudad, puedes usar el campo de búsqueda para buscar una ciudad específica.
 - La aplicación mostrará el clima de hoy y los próximos 5 días.
@@ -31,7 +31,7 @@ En resumen, la aplicación de pronóstico del tiempo es una herramienta útil pa
 - Puedes ver el número de presión de aire debajo del indicador de visibilidad.
 - Si quieres convertir la temperatura en Celcius a Fahrenheit y viceversa, puedes hacer clic en el botón "C" o "F" que se encuentra al lado derecho del tiempo actual
 
-## Despliegue
+# Despliegue
 Para desplegar este proyecto en React, sigue los siguientes pasos:
 
 - Clona este repositorio en tu computadora.
