@@ -177,7 +177,6 @@ const WeatherLocal = () => {
       <div className={`rectangle ${rectangleClass}`}>
         <br></br>
         <div className="top">
-          <button onClick={handleConvertTemperature}>Convertir</button>
           <h1>
             {/* colocar ciudad y pais */}
             <div>{weatherData.name}, {weatherData.sys.country}</div>
@@ -186,7 +185,7 @@ const WeatherLocal = () => {
             <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon' /> </div>
           </h1>
           <h3>
-            <div className="temp">{Math.round(temperature)}°{isCelsius ? 'C' : 'F'}</div>
+            <div className="temp">{Math.round(temperature)}°{isCelsius ? 'C' : 'F'} <button className="btn-circle" title={isCelsius ? "Convertir a Fahrenheit" : "Convertir a Celsius"} onClick={handleConvertTemperature}>{isCelsius ? 'F' : 'C'}</button> </div>
             <div>
               <div>
                 {/* Valores del día */}

@@ -14,16 +14,20 @@
     margin-right: 3%;
     margin-left: 3%;
 }
+
 /*TOP*/
 .weather-card .top {
     /* background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat; */
-    
-    text-align: center; /*Alinear el texto al centro */
+
+    text-align: center;
+    /*Alinear el texto al centro */
     background-size: cover;
     background-position: center;
-    color: #fff; /*Color del texto*/
+    color: #fff;
+    /*Color del texto*/
     padding: 10% 10% 0;
 }
+
 /* Formato de letras del tiempo actual*/
 .weather-card .top .temp {
     font-size: 400%;
@@ -84,6 +88,7 @@
 .weather-card .bottom {
     padding: 0 15%;
 }
+
 /* Formato de letras tamaño de mañana*/
 .weather-card .bottom .wrapper .forecast li {
     display: block;
@@ -92,14 +97,40 @@
     padding: 10px 0;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
 /*que flote a la derecha el tiempo*/
 .weather-card .bottom .wrapper .forecast li .condition {
     float: right;
     font-size: 25%;
 }
+
 /* tamaño de las palabras "ayer" y "mañana"*/
 .weather-card .bottom .wrapper .forecast li .condition .temp {
     font-family: 'Montserrat', sans-serif;
     font-size: 400%;
     color: rgb(0, 0, 0);
+}
+
+.btn-circle {
+    border-radius: 50%;
+    /* esto hace que el botón tenga forma circular */
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 40px;
+    background-color: #0088cc;/* color de fondo del botón */
+    color: #ffffff;/* color del texto del botón */
+    border: none;/*elimina el borde del botón */ 
+    transition: all 0.2s;/* agrega una transición suave al pasar el mouse sobre el botón */
+}
+.btn-circle:hover {
+    background-color: #005580;
+    /* cambia el color de fondo al pasar el mouse sobre el botón /
+cursor: pointer; / agrega el cursor "mano" al pasar el mouse sobre el botón */
+}
+
+.btn-circle:active {
+    background-color: #003366;
+    /* cambia el color de fondo al hacer click sobre el botón */
 }

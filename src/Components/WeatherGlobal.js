@@ -189,7 +189,6 @@ const WeatherGlobal = () => {
             <div className={`rectangle ${rectangleClass}`}>
                 <div className="top">
                     {/* Buscador de ciudades */}
-                    <button onClick={handleConvertTemperature}>Convertir</button>
                     <div className="weather-card__search">
                         <form onSubmit={handleSubmit}>
                             <input type="text" placeholder='Ingresa una ciudad' value={searchTerm} onChange={e => setSearchTerm(e.target.value)} />
@@ -205,7 +204,8 @@ const WeatherGlobal = () => {
                         <div >{weatherData.weather[0].main} <img src={iconUrl} alt='tiempo-Icon' /> </div>
                     </h1>
                     <h3>
-                        <div className="temp">{Math.round(temperature)}°{isCelsius ? 'C' : 'F'}</div>
+                        <div className="temp">{Math.round(temperature)}°{isCelsius ? 'C' : 'F'} <button className="btn-circle" title={isCelsius ? "Convertir a Fahrenheit" : "Convertir a Celsius"}  onClick={handleConvertTemperature}>{isCelsius ? 'F' : 'C'} </button> </div>
+                        
                         <div>
                             <div>
                                 {/* Valores del día */}
